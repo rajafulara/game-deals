@@ -211,12 +211,12 @@
 
         // --- Core Components ---
 
-        const Navbar = ({ onSearch, toggleSidebar, activeView, setActiveView, favoritesCount, theme, setTheme }) => (
+        const Navbar = ({ onSearch, toggleSidebar, activeView, setActiveView, favoritesCount, theme, setTheme, searchTerm }) => (
             <nav className="fixed top-0 w-full z-50 glass border-b border-gray-200 dark:border-dark-border h-18 shadow-lg shadow-loot-900/5">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
                     
                     {/* Brand */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 shrink-0">
                         <button onClick={toggleSidebar} className="lg:hidden text-gray-500 dark:text-gray-400 hover:text-loot-500 transition-colors">
                             <i className="fas fa-bars text-xl"></i>
                         </button>
@@ -227,7 +227,7 @@
                                     <i className="fas fa-gamepad text-lg animate-pulse"></i>
                                 </div>
                             </div>
-                            <div className="flex flex-col">
+                            <div className="flex flex-col hidden sm:flex">
                                 <span className="text-xl font-display font-bold tracking-tight text-gray-900 dark:text-white leading-none">
                                     Game<span className="text-loot-500">Deals</span>
                                 </span>
@@ -236,36 +236,52 @@
                         </div>
                     </div>
 
-                    {/* Search */}
-                    <div className="flex-1 max-w-md hidden md:block px-4">
-                        <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i className="fas fa-search text-gray-400 group-focus-within:text-loot-500 transition-colors"></i>
+                    {/* Advanced Real-Time Search Bar */}
+                    <div className="flex-1 max-w-2xl px-2 md:px-8">
+                        <div className="relative group w-full">
+                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i className="fas fa-search text-gray-400 group-focus-within:text-loot-500 transition-colors text-lg"></i>
                             </div>
                             <input 
                                 type="text" 
+                                value={searchTerm}
                                 onChange={(e) => onSearch(e.target.value)}
-                                placeholder="Search for games..." 
-                                className="block w-full pl-10 pr-4 py-2 bg-gray-100 dark:bg-dark-bg border border-transparent dark:border-dark-border focus:border-loot-500 focus:ring-1 focus:ring-loot-500 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-500 transition-all"
+                                placeholder="Search games (e.g., Elden Ring)..." 
+                                className="block w-full pl-12 pr-12 py-2.5 bg-gray-100 dark:bg-dark-bg border border-gray-200 dark:border-dark-border focus:border-loot-500 focus:ring-2 focus:ring-loot-500/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-500 transition-all shadow-inner"
                             />
+                            {/* Live Badge & Clear Button */}
+                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 gap-2">
+                                {searchTerm && (
+                                    <button 
+                                        onClick={() => onSearch('')}
+                                        className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                                        aria-label="Clear Search"
+                                    >
+                                        <i className="fas fa-times-circle"></i>
+                                    </button>
+                                )}
+                                <span className="hidden md:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-loot-100 dark:bg-loot-900/30 text-loot-600 dark:text-loot-400 border border-loot-200 dark:border-loot-800 tracking-wider">
+                                    LIVE
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 shrink-0">
                         <button 
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="w-10 h-10 rounded-full flex items-center justify-center text-gray-500 dark:text-yellow-400 hover:bg-gray-100 dark:hover:bg-dark-card transition-colors"
+                            className="w-10 h-10 rounded-full flex items-center justify-center text-gray-500 dark:text-yellow-400 hover:bg-gray-100 dark:hover:bg-dark-card transition-colors bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-dark-border"
                         >
                             <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
                         </button>
                         <button 
                             onClick={() => setActiveView('favorites')}
-                            className={`group relative flex items-center gap-2 px-4 py-2 rounded-full transition-all ${activeView === 'favorites' ? 'bg-loot-500/10 text-loot-500 border border-loot-500/20' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-card'}`}
+                            className={`group relative flex items-center gap-2 px-4 py-2 rounded-full transition-all border ${activeView === 'favorites' ? 'bg-loot-500/10 text-loot-500 border-loot-500/20' : 'bg-white/50 dark:bg-white/5 border-gray-200 dark:border-dark-border text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-card'}`}
                         >
                             <div className="relative">
                                 <i className={`fas fa-heart ${activeView === 'favorites' ? 'text-loot-500' : 'text-gray-400 group-hover:text-red-400'}`}></i>
-                                {favoritesCount > 0 && <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>}
+                                {favoritesCount > 0 && <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full animate-bounce"></span>}
                             </div>
                             <span className="hidden sm:inline text-sm font-medium">Wishlist</span>
                         </button>
@@ -625,6 +641,7 @@
                         onSearch={handleSearch} toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
                         activeView={activeView} setActiveView={setActiveView}
                         favoritesCount={favorites.length} theme={theme} setTheme={setTheme}
+                        searchTerm={searchTerm}
                     />
 
                     <div className="flex pt-16 flex-1">
