@@ -1,19 +1,26 @@
-# 🎮 Game Deals - Ultimate Global Price Tracker
+# 🎮 Game Deals - Price Tracker
 Game Deals is a fully functional, single-file web application that tracks real-time PC game prices across 25+ global digital marketplaces (Steam, Epic Games, GOG, GreenManGaming, etc.).
 Built with React, Tailwind CSS, and Babel directly in the browser, it requires no build step, no Node.js, and no server setup. Just download and run.
-✨ Key Features
+
+# ✨ Key Features
  * 🔥 Live Deal Feed: Real-time fetching of discounts via the CheapShark API.
+ * 🔍 Advanced Live Search: Prominent, real-time search bar in the navigation with "LIVE" status indicator and instant result filtering.
  * ⚡ Zero-Config Deployment: The entire app lives in one index.html file.
  * 🎨 Professional UI: Glassmorphism effects, 3D box art transformations, and a fully responsive layout.
  * 🌓 Theme System: Built-in Dark and Light mode toggle with persistence.
- * ❤️ Smart Wishlist: Save games to your local stash (persists on refresh).
+ * ❤️ Smart Wishlist: Save games to your local stash (persists on refresh) with easy "Back to Deals" navigation.
  * 💰 Budget Planner: Set a spending limit and automatically calculate remaining budget based on your wishlist.
- * 🔍 Advanced Filtering: Filter by AAA titles, Steamworks keys, Price range, Metacritic score, and specific Stores.
- * 🧠 Smart Deduplication: Automatically filters out duplicate listings to show only the lowest price for a specific game.
+ * ⚡ Smart Deduplication: Automatically filters out duplicate listings to show only the lowest price for a specific game.
  * 📱 Mobile First: Fully optimized for touch devices with a collapsible sidebar and adaptive grid.
- * 💸 Monetization Ready: Pre-integrated ad slots (Leaderboard, Sidebar, In-Feed) ready for AdSense/Mediavine code.
+ * 💸 Maximized Monetization: Strategic, pre-integrated ad slots ready for AdSense:
+   * Top & Footer Leaderboards
+   * Sidebar Square
+   * Hero & Post-Hero Banners
+   * In-Feed Native Ads
+   * Wishlist Banners
 
 # 🚀 Quick Start
+
 Option 1: Direct Download
  * Download the index.html file from this repository.
  * Double-click index.html to open it in Chrome, Firefox, Safari, or Edge.
@@ -21,7 +28,9 @@ Option 1: Direct Download
 
 Option 2: Local Server (Optional)
  * If you prefer running it via a local server (to avoid CORS issues with some strict browser extensions):
-
+ * using python
+   * python3 -m http.server 8000
+   * then visit http://localhost:8000
 
 # 🛠️ Technologies Used
 This project demonstrates the power of modern frontend development without the complexity of build tools (Webpack/Vite).
@@ -33,13 +42,14 @@ This project demonstrates the power of modern frontend development without the c
  * Fonts: Inter & Space Grotesk (Google Fonts)
 
 # ⚙️ Configuration
+
 Monetization
 The app includes placeholder components for advertisements (<AdUnit />). To monetize:
  * Open index.html.
  * Search for the AdUnit component definition.
  * Replace the placeholder SVG/Text with your actual Google AdSense or ad network script code.
 
-# SEO
+SEO
 The file includes full SEO optimizations:
  * Open Graph (Facebook/LinkedIn) tags.
  * Twitter Card tags.
@@ -53,7 +63,6 @@ Contributions are welcome! Since this is a single-file project:
  * Submit a Pull Request.
 
 Note: Please ensure you do not break the single-file structure. All CSS and JS must remain embedded or loaded via CDN.
-
 # 📄 License
 This project is open source and available under the MIT License.
 
