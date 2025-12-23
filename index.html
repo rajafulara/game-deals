@@ -89,7 +89,7 @@
                         },
                         // Specific Dark Theme overrides
                         dark: {
-                            bg: '#050505',     // True OLED Black
+                            bg: '#050505',      // True OLED Black
                             card: '#0c0c0e',   // High-end matte finish
                             border: '#27272a', // Zinc border
                         }
@@ -684,17 +684,17 @@
                             </p>
                         </div>
 
-                        {/* FIX: Changed layout to flex-col on small cards to fit buttons, added width adjustments */}
-                        <div className="mt-2 pt-3 border-t border-gray-100 dark:border-dark-border/50 flex flex-col xs:flex-row items-start xs:items-end justify-between gap-3">
+                        {/* FIX: Standardized flex-col layout for all screens to ensure buttons are always at the bottom and full width */}
+                        <div className="mt-2 pt-3 border-t border-gray-100 dark:border-dark-border/50 flex flex-col gap-3">
                             <div className="flex flex-col">
                                 <span className="text-xs text-gray-400 line-through">${deal.normalPrice}</span>
                                 <span className="text-lg font-bold text-brand-600 dark:text-white">${deal.salePrice}</span>
                             </div>
-                            <div className="flex items-center gap-2 w-full xs:w-auto mt-1 xs:mt-0">
+                            <div className="flex items-center gap-2 w-full mt-1">
                                 {/* Compare Button */}
                                 <button
                                     onClick={() => onCompare(deal)}
-                                    className="flex-1 xs:flex-none justify-center px-2 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-bold rounded-lg transition-colors flex items-center"
+                                    className="flex-1 justify-center px-2 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-bold rounded-lg transition-colors flex items-center"
                                     title="Compare prices across stores"
                                 >
                                     <i className="fas fa-exchange-alt mr-1"></i> Compare
@@ -703,7 +703,7 @@
                                     href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex-1 xs:flex-none justify-center px-2 py-1.5 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-lg transition-colors uppercase tracking-wide flex items-center"
+                                    className="flex-1 justify-center px-2 py-1.5 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-lg transition-colors uppercase tracking-wide flex items-center"
                                 >
                                     View
                                 </a>
@@ -1005,4 +1005,3 @@
     </script>
 </body>
 </html>
-
