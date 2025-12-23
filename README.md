@@ -3,16 +3,15 @@ Game Deals is a fully functional, single-file web application that tracks real-t
 Built with React, Tailwind CSS, and Babel directly in the browser, it requires no build step, no Node.js, and no server setup. Just download and run.
 
 # ✨ Key Features
- * 🔥 Live Deal Feed: Real-time fetching of discounts via the CheapShark API.
- * 📊 Smart Deal Score: A proprietary algorithm that ranks deals not just by price, but by Community Popularity (active userbase), Critical Scores (Metacritic/Steam), and Discount Depth.
- * 🔍 Advanced Live Search: Prominent, real-time search bar in the navigation with "LIVE" status indicator and instant result filtering.
- * ❤️ Your Loved Deals: Save games to your local stash (persists on refresh) with a built-in Budget Planner to track your spending.
+ * ⚖️ Live Price Comparison: Instantly view a matrix of real-time prices across all available stores, including Historical Lows and Current Bests, directly via a dedicated modal for every game.
+ * 💎 Premium Gaming UI: An immersive aesthetic featuring a "Midnight Obsidian" dark mode and "Frost Glass" light mode, accented with neon gradients and holographic glassmorphism.
+ * 📊 Community-First Deal Score: A proprietary algorithm that ranks deals by Popularity (active userbase), Critical Scores (Metacritic/Steam), and Discount Depth to surface true gems.
+ * 🔍 Advanced Live Search: Prominent, real-time search bar with "LIVE" status indicator, instant filtering, and mobile-optimized input.
+ * ❤️ Your Loved Deals: Save games to your local stash (persists on refresh) with a built-in Budget Planner to visualize spending against your limit.
+ * 🔥 Live Deal Feed: Real-time fetching of discounts via the CheapShark API with smart deduplication.
  * 🧠 Smart Meta-Data: Automatically generates concise game descriptions (e.g., "Top Rated • Released 2023") and displays clear Steam/Metacritic rating labels.
  * ⚡ Zero-Config Deployment: The entire app lives in one index.html file.
- * 🎨 Professional UI: Glassmorphism effects, 3D box art transformations, and a fully responsive layout.
- * 🌓 Theme System: Built-in Dark and Light mode toggle with persistence.
- * ⚡ Smart Deduplication: Automatically filters out duplicate listings to show only the lowest price for a specific game.
- * 📱 Mobile First: Fully optimized for touch devices with a collapsible sidebar and adaptive grid.
+ * 📱 Mobile First: Fully optimized for touch devices with a collapsible sidebar, adaptive grid, and touch-friendly controls.
  * 💸 Maximized Monetization: Strategic, pre-integrated ad slots ready for AdSense (Leaderboard, Sidebar, In-Feed, Wishlist).
 
 # 🚀 Quick Start
@@ -63,7 +62,7 @@ Note: Please ensure you do not break the single-file structure. All CSS and JS m
 # 📄 License
 This project is open source and available under the MIT License.
 
-# 🙏 Acknowledgements
+🙏 Acknowledgements
  * CheapShark API for providing the excellent, free game data.
  * Unsplash for placeholder assets.
  * Tailwind Labs for the utility-first CSS framework.
